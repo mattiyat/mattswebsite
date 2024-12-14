@@ -1,11 +1,72 @@
-<a href="/">Home</a>
-<a href="about">About</a>
+---
+import '../styles/global.css'
+import Footer from '../components/Footer.astro'
+import Header from '../components/Header.astro'
+import BaseLayout from '../layouts/BaseLayout.astro'
+const pageTitle = "About Me"
+
+const identity = {
+    firstName: "Matt",
+    country: "USA",
+    occupation: "Software Developer",
+    hobbies:["Hiking", "Electric Unicyles", "3D Printing", "Fitness", "3d Modeling", "Sci Fi", "open source projects"],
+}
+
+const languages = ["Java", "Kotlin", "Typescript", "Javascript"]
+const frameworks = ["Angular", "Express", "Astro", "Android", "Next.js"]
+
+const happy = true;
+const finished = false;
+const goal = 3;
+
+const skillColor = "navy";
+const fontWeight = "bold"
+const textCase = "uppercase"
+---
+<BaseLayout>
+ <h1>{pageTitle}</h1>
+    <h2>... and my new Astro site!</h2>
+
+    <p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
+
+    <p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
+
+    {happy && <p>I am happy to be learning Astro!</p>}
+
+    {finished && <p>I finished this tutorial!</p>}
+    
+    {goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
+
+    <p>Here are a few facts about me:</p>
+<ul>
+  <li>My name is {identity.firstName}.</li>
+  <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
+  {identity.hobbies.length >= 2 &&
+    <li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>
+  }
+</ul>
+<p>My languages are:</p>
+<ul>
+  {languages.map((skill) => <li class="skill">{skill}</li>)}
+</ul>
+
+<p>My frameworks are:</p>
+<ul>
+  {frameworks.map((framework) => <li>{framework}</li>)}
+</ul>
+</BaseLayout>
 
 <body>
-    <h1>A little about me</h1>
-    <h2>and some of the things I've worked on</h2>
-
-    <p>This is a work in progress through the astro docs</p>
-
-    <p>lorem ipsum, lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni ea sapiente porro praesentium doloribus culpa minus, suscipit dicta delectus quod quia, aliquid autem consequuntur esse nostrum ex. Delectus, nihil sed.</p>
-</body> 
+  <style is:global define:vars={{skillColor, fontWeight, textCase}}>
+    h1 {
+        color: purple;
+        font-size: 4rem;
+    }
+    .skill {
+        color: var(--skillColor);
+        font-weight: var(--fontWeight);
+        text-transform: var(--textCase);
+      }
+</style>
+</body>
+  
