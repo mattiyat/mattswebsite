@@ -10,22 +10,24 @@ import {
   NavigationMenuViewport,
 } from "@/components/ui/navigation-menu"
 
-interface Props {
-  data: {
-    title: string;
-    link: string;
-  }[]
-}
+// interface Props {
+//   data: {
+//     title: string;
+//     link: string;
+//   }[]
+// }
+
+
 
 const NavigationMenu = () => {
   return(
-<BaseNavigationMenu>
+<BaseNavigationMenu className="NavigationMenu">
   <NavigationMenuList>
-    <NavigationMenuItem>
+    <NavigationMenuItem >
         <NavigationMenuLink className={navigationMenuTriggerStyle()} href="/">Home </NavigationMenuLink>
     </NavigationMenuItem>
     <NavigationMenuItem>
-   <NavigationMenuLink className={navigationMenuTriggerStyle()} href="/Blog">Blog </NavigationMenuLink>
+   <NavigationMenuLink className={navigationMenuTriggerStyle()} href="/blog">Blog </NavigationMenuLink>
 </NavigationMenuItem>
     <NavigationMenuItem>
       <NavigationMenuTrigger>Projects</NavigationMenuTrigger>
