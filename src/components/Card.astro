@@ -1,13 +1,23 @@
 ---
-import { Card as card}   from './ui_base/Card'
-interface Props {
-	title: string;
-	body: string;
-	href: string;
-}
-
-const { href, title, body } = Astro.props;
+const cardData = [
+	{
+		title: "Writing with only pinkys",
+		href: "/wiring_with_only_pinkys",
+		body: "ayyy maybe you should try writing with your pinkys sometime"
+	},
+	{
+		title: "Monkeys or LLM's",
+		href: "/monkeys_or_LLMs",
+		body: "somethign somethign "
+	},
+	{
+		title: "Should we revise the constitution?",
+		href: "/ohboyherewego",
+		body: "a bunch of tempo text here for your eyeballs"
+	},
+]
 ---
 
 
-<card title='asdf', href='asdf' body='asdf'></card>
+<card {cardData}></card>
+

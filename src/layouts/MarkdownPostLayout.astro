@@ -1,11 +1,20 @@
 ---
 const { frontmatter } = Astro.props;
 import BaseLayout from "./BaseLayout.astro";
+import Container from "../components/Container.astro";
 ---
-<BaseLayout pageTitle={frontmatter.title}>
-    <p>{frontmatter.pubDate.toString().slice(0,10)}</p>
-    <p><em>{frontmatter.description}</em></p>
-    <p>Written by: {frontmatter.author}</p>
-    <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
-    <slot />
+<BaseLayout title={frontmatter.title}>
+  <Container>
+    <article class="py-8 space-y-6">
+      <div class="space-y-4">
+        <p class="text-gray-600">{frontmatter.pubDate.toString().slice(0,10)}</p>
+        <p class="italic text-gray-700">{frontmatter.description}</p>
+        <p class="text-gray-600">Written by: {frontmatter.author}</p>
+      </div>
+      <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} class="my-6" />
+      <div class="prose prose-lg max-w-none">
+        <slot />
+      </div>
+    </article>
+  </Container>
 </BaseLayout>
